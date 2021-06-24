@@ -38,14 +38,7 @@ def expand_from(s, index, odd)
   s[left..right]
 end
 
-s1 = 'babad'
-p longest_palindrome(s1) # "bab" or "aba"
-
-s2 = 'cbbd'
-p longest_palindrome(s2) # "bb"
-
-s3 = 'a'
-p longest_palindrome(s3) # "a"
-
-s4 = 'ac'
-p longest_palindrome(s4) # "a"
+p longest_palindrome('babad')  # 'bab' or 'aba'
+p longest_palindrome('cbbd')   # 'bb'
+p longest_palindrome('a')      # 'a'
+p longest_palindrome('ac')     # 'a'
