@@ -33,9 +33,9 @@ def to_list(arr)
 
   head = ListNode.new(arr[0])
   cur = head
-  
-  (1...arr.size).each do |i|
-    cur.next = ListNode.new(arr[i])
+
+  arr[1..].each do |a|
+    cur.next = ListNode.new(a)
     cur = cur.next
   end
 
