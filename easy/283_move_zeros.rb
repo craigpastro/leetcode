@@ -8,7 +8,7 @@
 
 def move_zeroes(nums)
   j = 0
-  
+
   (0...nums.size).each do |i|
     if nums[i] != 0
       nums[j] = nums[i]

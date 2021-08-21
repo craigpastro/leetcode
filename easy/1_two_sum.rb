@@ -13,7 +13,7 @@ def two_sum(nums, target)
 
   nums.each do |x|
     y = target - x
-    if h.key?(y)
+    if h.has_key?(y)
       return [h[x].pop, h[y].pop] if x != y
       return h[x][..1] if h[x].size > 1 # && x == y
     end

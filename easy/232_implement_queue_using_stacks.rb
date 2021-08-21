@@ -54,7 +54,7 @@ class MyQueue
   end
 end
 
-q = MyQueue.new()
+q = MyQueue.new
 q.push(1)
 q.push(2)
 puts q.peek # 1
