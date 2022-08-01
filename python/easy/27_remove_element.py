@@ -20,7 +20,7 @@ the input array in-place with O(1) extra memory.
 class Solution:
     def removeElement(self, nums: List[int], val: int) -> int:
         i = 0
-        
+
         for num in nums:
             if num != val:
                 nums[i] = num
