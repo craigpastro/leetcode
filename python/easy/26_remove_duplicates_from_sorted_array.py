@@ -18,6 +18,7 @@ Do not allocate extra space for another array. You must do this by
 modifying the input array in-place with O(1) extra memory.
 """
 
+
 class Solution:
     def removeDuplicates(self, nums: List[int]) -> int:
         i = 0
@@ -26,5 +27,5 @@ class Solution:
             if nums[i] != num:
                 i += 1
                 nums[i] = num
-        
-        return i+1
+
+        return i + 1

@@ -31,24 +31,26 @@ IX. There are six instances where subtraction is used:
 Given a roman numeral, convert it to an integer.
 """
 
+
 class Solution:
     def romanToInt(self, s: str) -> int:
         res = 0
-        
+
         for i, v in enumerate(s):
-            if i + 1 < len(s) and d[s[i]] < d[s[i+1]]:
+            if i + 1 < len(s) and d[s[i]] < d[s[i + 1]]:
                 res -= d[v]
             else:
                 res += d[v]
-        
+
         return res
 
+
 d = {
-    'I': 1,
-    'V': 5,
-    'X': 10,
-    'L': 50,
-    'C': 100,
-    'D': 500,
-    'M': 1000,
+    "I": 1,
+    "V": 5,
+    "X": 10,
+    "L": 50,
+    "C": 100,
+    "D": 500,
+    "M": 1000,
 }
