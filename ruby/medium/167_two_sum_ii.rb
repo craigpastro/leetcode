@@ -1,5 +1,5 @@
 # 167. Two Sum II - Input array is sorted
-# Easy
+# Medium
 #
 # Given an array of integers numbers that is already sorted in non-decreasing
 # order, find two numbers such that they add up to a specific target number.
@@ -9,6 +9,8 @@
 #
 # The tests are generated such that there is exactly one solution. You may not
 # use the same element twice.
+#
+# Your solution must use only constant extra space.
 
 def two_sum(numbers, target)
   h = {}
