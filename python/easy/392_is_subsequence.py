@@ -11,17 +11,18 @@ the relative positions of the remaining characters. (i.e., "ace" is a
 subsequence of "abcde" while "aec" is not).
 """
 
+
 class Solution:
-  def isSubsequence(self, s: str, t: str) -> bool:
-      if s == "":
-          return True
-      
-      ss = list(s)
-      i = 0
-      for c in t:
-          if i >= len(ss):
-              break
-          if c == ss[i]:
-              i += 1
-      
-      return i == len(ss)
+    def isSubsequence(self, s: str, t: str) -> bool:
+        if s == "":
+            return True
+
+        ss = list(s)
+        i = 0
+        for c in t:
+            if i >= len(ss):
+                break
+            if c == ss[i]:
+                i += 1
+
+        return i == len(ss)
