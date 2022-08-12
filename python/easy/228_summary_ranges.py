@@ -21,7 +21,7 @@ class Solution:
         tmp = []
 
         for num in nums:
-            if len(tmp) == 0 or tmp[len(tmp) - 1] + 1 == num:
+            if len(tmp) == 0 or tmp[-1] + 1 == num:
                 tmp.append(num)
             else:
                 res.append(tmp)
@@ -30,7 +30,4 @@ class Solution:
         if len(tmp) != 0:
             res.append(tmp)
 
-        return [
-            f"{tmp[0]}->{tmp[len(tmp)-1]}" if len(tmp) > 1 else str(tmp[0])
-            for tmp in res
-        ]
+        return [f"{tmp[0]}->{tmp[-1]}" if len(tmp) > 1 else str(tmp[0]) for tmp in res]
