@@ -12,10 +12,7 @@ class Solution:
         d = {}
 
         for c in s:
-            if c in d:
-                d[c] += 1
-            else:
-                d[c] = 1
+            d[c] = d.get(c, 0) + 1
 
         for i, c in enumerate(s):
             if d[c] == 1:

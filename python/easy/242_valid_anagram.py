@@ -17,7 +17,4 @@ class Solution:
 def freq(s):
     d = {}
     for c in s:
-        if c in d:
-            d[c] += 1
-        else:
-            d[c] = 1
+        d[c] = d.get(c, 0) + 1

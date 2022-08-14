@@ -15,10 +15,7 @@ class Solution:
         d = {}
 
         for num in nums:
-            if num in d:
-                d[num] += 1
-            else:
-                d[num] = 1
+            d[num] = d.get(num, 0) + 1
 
             if d[num] > majority:
                 return num
