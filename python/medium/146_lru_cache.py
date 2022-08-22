@@ -18,40 +18,44 @@ the capacity from this operation, evict the least recently used key.
 The functions get and put must each run in O(1) average time complexity.
 """
 
+NOT_IN_CACHE = -1
+
 
 class LRUCache:
     def __init__(self, capacity: int):
         self.capacity = capacity
-        self.dict = {}
+        self.key_to_node = {}
         self.list = LinkedList()
 
     def get(self, key: int) -> int:
-        if key not in self.dict:
-            return -1
+        if key not in self.key_to_node:
+            return NOT_IN_CACHE
 
-        node = self.dict[key]
-        self.list.move_to_head(node)
-        return self.list.head.val
+        node = self.key_to_node[key]
+        self.list.delete(node)
+        self.list.insert_at_head(node)
+        return node.val
 
     def put(self, key: int, value: int) -> None:
-        if key in self.dict:
-            node = self.dict[key]
+        if key in self.key_to_node:
+            node = self.key_to_node[key]
             node.val = value
-            self.list.move_to_head(node)
+            self.list.delete(node)
+            self.list.insert_at_head(node)
             return
 
-        if len(self.dict) >= self.capacity:
-            node = self.list.tail
-            del self.dict[node.key]
+        if len(self.key_to_node) >= self.capacity:
+            node = self.list.tail.prev
+            del self.key_to_node[node.key]
             self.list.delete(node)
 
         node = Node(key, value)
-        self.list.insert_head(node)
-        self.dict[key] = node
+        self.list.insert_at_head(node)
+        self.key_to_node[key] = node
 
 
 class Node:
-    def __init__(self, key=0, val=0, prev=None, next=None):
+    def __init__(self, key, val, prev=None, next=None):
         self.key = key
         self.val = val
         self.prev = prev
@@ -60,42 +64,20 @@ class Node:
 
 class LinkedList:
     def __init__(self):
-        self.head = None
-        self.tail = None
+        self.head = Node("head", "head")
+        self.tail = Node("tail", "tail")
+        self.head.next = self.tail
+        self.tail.prev = self.head
 
-    def insert_head(self, node):
-        if self.head is None:
-            self.tail = node
-        else:
-            node.next = self.head
-            self.head.prev = node
-
-        self.head = node
-
-    def move_to_head(self, node):
-        if node == self.head or node is None:
-            return
-
-        self.delete(node)
-        self.insert_head(node)
+    def insert_at_head(self, node):
+        node.next = self.head.next
+        self.head.next.prev = node
+        self.head.next = node
+        node.prev = self.head
 
     def delete(self, node):
-        if node is None:
-            return
-
-        if node.prev is not None:
-            node.prev.next = node.next
-
-        if node.next is not None:
-            node.next.prev = node.prev
-
-        if node == self.head:
-            self.head = node.next
-
-        if node == self.tail:
-            self.tail = node.prev
-
-        del node
+        node.prev.next = node.next
+        node.next.prev = node.prev
 
     def array(self):
         res = []
