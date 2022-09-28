@@ -8,13 +8,6 @@ will be accepted.
 """
 
 
-class TreeNode:
-    def __init__(self, val=0, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
-
-
 class Solution:
     def averageOfLevels(self, root: Optional[TreeNode]) -> List[float]:
         if root is None:
@@ -41,3 +34,10 @@ class Solution:
                 queue.append(next_row)
 
         return res
+
+
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right

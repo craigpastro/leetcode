@@ -16,13 +16,6 @@ Assume a BST is defined as follows:
 """
 
 
-class TreeNode:
-    def __init__(self, val=0, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
-
-
 class Solution:
     def findMode(self, root: Optional[TreeNode]) -> List[int]:
         if root is None:
@@ -43,3 +36,10 @@ class Solution:
         m = max(d.values())
 
         return [k for k, v in d.items() if v == m]
+
+
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right

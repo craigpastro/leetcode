@@ -16,13 +16,6 @@ Note: The merging process must start from the root nodes of both trees.
 """
 
 
-class TreeNode:
-    def __init__(self, val=0, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
-
-
 class Solution:
     def mergeTrees(
         self, root1: Optional[TreeNode], root2: Optional[TreeNode]
@@ -51,3 +44,10 @@ class Solution:
             self.mergeTrees(root1_left, root2_left),
             self.mergeTrees(root1_right, root2_right),
         )
+
+
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right

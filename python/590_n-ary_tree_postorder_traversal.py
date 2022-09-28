@@ -7,12 +7,6 @@ values.
 """
 
 
-class Node:
-    def __init__(self, val=None, children=None):
-        self.val = val
-        self.children = children
-
-
 class Solution:
     def postorder(self, root: "Node") -> List[int]:
         if root is None:
@@ -23,3 +17,9 @@ class Solution:
             res.extend(self.postorder(child))
 
         return res + [root.val]
+
+
+class Node:
+    def __init__(self, val=None, children=None):
+        self.val = val
+        self.children = children
