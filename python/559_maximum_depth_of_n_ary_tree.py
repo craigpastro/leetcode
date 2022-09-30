@@ -10,12 +10,6 @@ node down to the farthest leaf node.
 """
 
 
-class Node:
-    def __init__(self, val=None, children=None):
-        self.val = val
-        self.children = children
-
-
 class Solution:
     def maxDepth(self, root: "Node") -> int:
         if root is None:
@@ -29,3 +23,9 @@ def helper(root: "Node", depth: int) -> int:
         return depth
 
     return max([helper(child, depth + 1) for child in root.children])
+
+
+class Node:
+    def __init__(self, val=None, children=None):
+        self.val = val
+        self.children = children

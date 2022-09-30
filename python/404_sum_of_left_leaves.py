@@ -8,13 +8,6 @@ A leaf is a node with no children. A left leaf is a leaf that is the left child 
 """
 
 
-class TreeNode:
-    def __init__(self, val=0, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
-
-
 class Solution:
     def sumOfLeftLeaves(self, root: Optional[TreeNode]) -> int:
         if root is None:
@@ -31,3 +24,10 @@ def helper(root: Optional[TreeNode], is_left: bool) -> int:
         return root.val
 
     return helper(root.left, True) + helper(root.right, False)
+
+
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
