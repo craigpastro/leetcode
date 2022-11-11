@@ -14,24 +14,23 @@ A valid BST is defined as follows:
 """
 
 
-class TreeNode:
-    def __init__(self, val=0, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
-
-
 class Solution:
     def isValidBST(self, root: Optional[TreeNode]) -> bool:
         if root is None:
             return True
 
-        tree = in_order(root)
+        tree = self.in_order(root)
         return tree == sorted(set(tree))
 
+    def in_order(self, root: Optional[TreeNode]) -> List[int]:
+        if root is None:
+            return []
 
-def in_order(root):
-    if root is None:
-        return []
+        return self.in_order(root.left) + [root.val] + self.in_order(root.right)
 
-    return in_order(root.left) + [root.val] + in_order(root.right)
+
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
