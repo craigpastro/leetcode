@@ -9,3 +9,4 @@
 - [142. Linked List Cycle II](./142_linked_list_cycle_ii.py)
 - [102. Binary Tree Level Order Traversal](./102_binary_tree_level_order_traversal.py)
 - [200. Number of Islands](./200_number_of_islands.py)
+- [394. Decode String](./394_decode_string.py)
