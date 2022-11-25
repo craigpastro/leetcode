@@ -13,7 +13,9 @@ You can return the answer in any order.
 
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        d = populate_dict(nums)
+        d = {}
+        for i, num in enumerate(nums):
+            d[num] = i
 
         for x in nums:
             y = target - x
@@ -25,10 +27,3 @@ class Solution:
 
             if x != y and y in d:
                 return d[x], d[y]
-
-
-def populate_dict(nums):
-    d = {}
-    for i, num in enumerate(nums):
-        d[num] = i
-    return d
