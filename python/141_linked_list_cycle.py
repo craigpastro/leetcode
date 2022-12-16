@@ -14,12 +14,6 @@ Return true if there is a cycle in the linked list. Otherwise, return false.
 """
 
 
-class ListNode(object):
-    def __init__(self, x):
-        self.val = x
-        self.next = None
-
-
 class Solution:
     def hasCycle(self, head: Optional[ListNode]) -> bool:
         slow = head
@@ -33,3 +27,9 @@ class Solution:
                 return True
 
         return False
+
+
+class ListNode(object):
+    def __init__(self, x):
+        self.val = x
+        self.next = None
