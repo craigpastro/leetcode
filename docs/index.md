@@ -1,4 +1,4 @@
-# Leetcode Solutions
+# Home
 
 My [Leetcode profile](https://leetcode.com/craigpastro/).
 
