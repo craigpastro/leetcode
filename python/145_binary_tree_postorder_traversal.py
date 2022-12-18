@@ -1,17 +1,9 @@
 """
-145. Binary Tree Postorder Traversal
+# 145. Binary Tree Postorder Traversal
 Easy
 
-Given the root of a binary tree, return the postorder traversal of its
-nodes' values.
+Given the root of a binary tree, return the postorder traversal of its nodes' values.
 """
-
-
-class TreeNode(object):
-    def __init__(self, val=0, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
 
 
 class Solution:
@@ -24,3 +16,10 @@ class Solution:
             + self.postorderTraversal(root.right)
             + [root.val]
         )
+
+
+class TreeNode(object):
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right

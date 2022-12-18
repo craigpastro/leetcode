@@ -1,5 +1,6 @@
 """
-172. Factorial Trailing Zeroes
+# 172. Factorial Trailing Zeroes
+
 Medium
 
 Given an integer n, return the number of trailing zeroes in n!.
