@@ -2,23 +2,23 @@ site_name: Leetcode Solutions
 site_url: https://craigpastro.github.io/leetcode/
 repo_url: https://github.com/craigpastro/leetcode
 site_author: Craig Pastro
-nav:
-    - Home: index.md
-    - About: about.md
-    - Problems:
-      - '1. Two Sum': problems/1_two_sum.md
-      - '2. Add Two Numbers': problems/2_add_two_numbers.md
-      - '3. Longest Substring Without Repeating Characters': problems/3_longest_substring_without_repeating_characters.md
-      - '4. Median of Two Sorted Arrays': problems/4_median_of_two_sorted_arrays.md
-      - '5. Longest Palindromic Substring': problems/5_longest_palindromic_substring.md
-      - '6. ZigZag Conversion': problems/6_zigzag_conversion.md
-      - '7. Reverse Integer': problems/7_reverse_integer.md
-      - '8. String to Integer (atoi)': problems/8_string_to_integer.md
-      - '9. Palindrome Number': problems/9_palindrome_number.md
-      - '11. Container With Most Water': problems/11_container_with_most_water.md
-      - '12. Integer to Roman': problems/12_integer_to_roman.md
-      - '20. Valid Parentheses': problems/20_valid_parentheses.md
 theme:
     name: readthedocs
     locale: en
     nav_style: dark
+# nav:
+#     - Home: index.md
+#     - About: about.md
+#     - Problems:
+#       - '1. Two Sum': problems/1_two_sum.md
+#       - '2. Add Two Numbers': problems/2_add_two_numbers.md
+#       - '3. Longest Substring Without Repeating Characters': problems/3_longest_substring_without_repeating_characters.md
+#       - '4. Median of Two Sorted Arrays': problems/4_median_of_two_sorted_arrays.md
+#       - '5. Longest Palindromic Substring': problems/5_longest_palindromic_substring.md
+#       - '6. ZigZag Conversion': problems/6_zigzag_conversion.md
+#       - '7. Reverse Integer': problems/7_reverse_integer.md
+#       - '8. String to Integer (atoi)': problems/8_string_to_integer.md
+#       - '9. Palindrome Number': problems/9_palindrome_number.md
+#       - '11. Container With Most Water': problems/11_container_with_most_water.md
+#       - '12. Integer to Roman': problems/12_integer_to_roman.md
+#       - '20. Valid Parentheses': problems/20_valid_parentheses.md
