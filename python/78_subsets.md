@@ -1,15 +1,12 @@
-"""
-78. Subsets
+# 78. Subsets
+
 Medium
 
-Given an integer array nums of unique elements, return all possible subsets
-(the power set).
+Given an integer array nums of unique elements, return all possible subsets (the power set).
 
-The solution set must not contain duplicate subsets. Return the solution in
-any order.
-"""
+The solution set must not contain duplicate subsets. Return the solution in any order.
 
-
+```python
 class Solution:
     def subsets(self, nums: List[int]) -> List[List[int]]:
         return self.helper([], nums)
@@ -23,3 +20,4 @@ class Solution:
             res.extend(self.helper(bag + [rest[i]], rest[i + 1 :]))
 
         return res
+```

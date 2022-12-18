@@ -1,21 +1,12 @@
-"""
-86. Partition List
+# 86. Partition List
+
 Medium
 
-Given the head of a linked list and a value x, partition it such that all
-nodes less than x come before nodes greater than or equal to x.
+Given the head of a linked list and a value x, partition it such that all nodes less than x come before nodes greater than or equal to x.
 
-You should preserve the original relative order of the nodes in each of the
-two partitions.
-"""
+You should preserve the original relative order of the nodes in each of the two partitions.
 
-
-class ListNode:
-    def __init__(self, val=0, next=None):
-        self.val = val
-        self.next = next
-
-
+```python
 class Solution:
     def partition(self, head: Optional[ListNode], x: int) -> Optional[ListNode]:
         if head is None:
@@ -42,3 +33,10 @@ class Solution:
         lt.next = gtHead.next
 
         return ltHead.next
+
+
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+```

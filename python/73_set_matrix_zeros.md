@@ -1,14 +1,12 @@
-"""
-73. Set Matrix Zeroes
+# 73. Set Matrix Zeroes
+
 Medium
 
-Given an m x n integer matrix matrix, if an element is 0, set its entire row
-and column to 0's.
+Given an m x n integer matrix matrix, if an element is 0, set its entire row and column to 0's.
 
 You must do it in place.
-"""
 
-
+```python
 class Solution:
     def setZeroes(self, matrix: List[List[int]]) -> None:
         """
@@ -41,3 +39,4 @@ class Solution:
                     res.append((i, j))
 
         return res
+```
