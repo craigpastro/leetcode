@@ -1,11 +1,11 @@
 """
-965. Univalued Binary Tree
+# 965. Univalued Binary Tree
+
 Easy
 
 A binary tree is uni-valued if every node in the tree has the same value.
 
-Given the root of a binary tree, return true if the given tree is uni-valued,
-or false otherwise.
+Given the root of a binary tree, return true if the given tree is uni-valued, or false otherwise.
 """
 
 

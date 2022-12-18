@@ -1,12 +1,11 @@
 """
-559. Maximum Depth of N-ary Tree
-Easy
+# 559. Maximum Depth of N-ary Tree
 
+Easy
 
 Given a n-ary tree, find its maximum depth.
 
-The maximum depth is the number of nodes along the longest path from the root
-node down to the farthest leaf node.
+The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.
 """
 
 

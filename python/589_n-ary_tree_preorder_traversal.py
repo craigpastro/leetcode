@@ -1,9 +1,9 @@
 """
-589. N-ary Tree Preorder Traversal
+# 589. N-ary Tree Preorder Traversal
+
 Easy
 
-Given the root of an n-ary tree, return the preorder traversal of its nodes'
-values.
+Given the root of an n-ary tree, return the preorder traversal of its nodes' values.
 """
 
 

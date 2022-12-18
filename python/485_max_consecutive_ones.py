@@ -1,9 +1,9 @@
 """
-485. Max Consecutive Ones
+# 485. Max Consecutive Ones
+
 Easy
 
-Given a binary array nums, return the maximum number of consecutive 1's in
-the array.
+Given a binary array nums, return the maximum number of consecutive 1's in the array.
 """
 
 

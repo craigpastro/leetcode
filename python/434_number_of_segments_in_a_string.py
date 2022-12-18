@@ -1,5 +1,6 @@
 """
-434. Number of Segments in a String
+# 434. Number of Segments in a String
+
 Easy
 
 Given a string s, return the number of segments in the string.
