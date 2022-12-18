@@ -1,12 +1,10 @@
-"""
-46. Permutations
+# 46. Permutations
+
 Medium
 
-Given an array nums of distinct integers, return all the possible
-permutations. You can return the answer in any order.
-"""
+Given an array nums of distinct integers, return all the possible permutations. You can return the answer in any order.
 
-
+```python
 class Solution:
     def permute(self, nums: List[int]) -> List[List[int]]:
         return self.permutations([], nums)
@@ -21,3 +19,4 @@ class Solution:
             res += self.permutations(prefix + [nums[i]], nums[:i] + nums[i + 1 :])
 
         return res
+```

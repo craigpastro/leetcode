@@ -1,15 +1,14 @@
-"""
-54. Spiral Matrix
+# 54. Spiral Matrix
+
 Medium
 
-Given an m x n matrix, return all elements of the matrix in spiral order.
+Given an `m x n` matrix, return all elements of the matrix in spiral order.
 
 Example:
-Input: matrix = [[1,2,3],[4,5,6],[7,8,9]]
-Output: [1,2,3,6,9,8,7,4,5]
-"""
+Input: `matrix = [[1,2,3],[4,5,6],[7,8,9]]`
+Output: `[1,2,3,6,9,8,7,4,5]`
 
-
+```python
 class Solution:
     def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
         if matrix == []:
@@ -17,3 +16,4 @@ class Solution:
 
         # https://stackoverflow.com/questions/8421337/rotating-a-two-dimensional-array-in-python
         return list(matrix.pop(0)) + self.spiralOrder(list(zip(*matrix))[::-1])
+```

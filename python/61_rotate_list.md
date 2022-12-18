@@ -1,17 +1,10 @@
-"""
-61. Rotate List
+# 61. Rotate List
+
 Medium
 
-Given the head of a linked list, rotate the list to the right by k places.
-"""
+Given the head of a linked list, rotate the list to the right by `k` places.
 
-
-class ListNode:
-    def __init__(self, val=0, next=None):
-        self.val = val
-        self.next = next
-
-
+```python
 class Solution:
     def rotateRight(self, head: Optional[ListNode], k: int) -> Optional[ListNode]:
         if head is None or k == 0:
@@ -39,3 +32,10 @@ class Solution:
         curr.next = None
 
         return head
+
+
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+```

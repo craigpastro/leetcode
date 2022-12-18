@@ -7,3 +7,14 @@ My [Leetcode profile](https://leetcode.com/craigpastro/).
 - Recently I tried to do a bunch with Python. I've come to the conclusion that Python is probably the best language for leetcoding. All the solutions here are in Python.
 
 You can see some of the older Ruby and Go solutions at the [repo](https://github.com/craigpastro/leetcode).
+
+## Particularly interesting solutions or problems
+
+- [146. LRU Cache](./problems/146_lru_cache.md)
+- [594. Longest Harmonious Subsequence](./problems/594_longest_harmonious_subsequence.md)
+- [62. Unique Paths](./problems/62_unique_paths.md)
+- [46. Permutations](./problems/46_permutations.md)
+- [142. Linked List Cycle II](./problems/142_linked_list_cycle_ii.md)
+- [102. Binary Tree Level Order Traversal](./problems/102_binary_tree_level_order_traversal.md)
+- [200. Number of Islands](./problems/200_number_of_islands.md)
+- [394. Decode String](./problems/394_decode_string.md)

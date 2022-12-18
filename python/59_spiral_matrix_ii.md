@@ -1,12 +1,10 @@
-"""
-59. Spiral Matrix II
+# 59. Spiral Matrix II
+
 Medium
 
-Given a positive integer n, generate an n x n matrix filled with elements
-from 1 to n^2 in spiral order.
-"""
+Given a positive integer `n`, generate an `n x n` matrix filled with elements from `1` to `n^2` in spiral order.
 
-
+```python
 class Solution:
     def generateMatrix(self, n: int) -> List[List[int]]:
         matrix = [[0] * n for _ in range(n)]
@@ -35,3 +33,4 @@ class Solution:
             left += 1
 
         return matrix
+```

@@ -1,15 +1,12 @@
-"""
-43. Multiply Strings
+# 43. Multiply Strings
+
 Medium
 
-Given two non-negative integers num1 and num2 represented as strings, return
-the product of num1 and num2, also represented as a string.
+Given two non-negative integers num1 and num2 represented as strings, return the product of num1 and num2, also represented as a string.
 
-Note: You must not use any built-in BigInteger library or convert the inputs
-to integer directly.
-"""
+Note: You must not use any built-in BigInteger library or convert the inputs to integer directly.
 
-
+```python
 class Solution:
     def multiply(self, num1: str, num2: str) -> str:
         if num1 == "0" or num2 == "0":
@@ -29,3 +26,4 @@ class Solution:
                 res[i + j] += tmp // 10
 
         return "".join([str(i) for i in res]).lstrip("0")
+```
