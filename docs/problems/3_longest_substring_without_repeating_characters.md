@@ -1,11 +1,10 @@
-"""
-3. Longest Substring Without Repeating Characters
+# 3. Longest Substring Without Repeating Characters
 
-Given a string s, find the length of the longest substring without
-repeating characters.
-"""
+Medium
 
+Given a string s, find the length of the longest substring without repeating characters.
 
+```python
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
         seen = {}
@@ -28,3 +27,4 @@ class Solution:
             max = cur
 
         return max
+```

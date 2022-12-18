@@ -1,0 +1,19 @@
+site_name: Leetcode Solutions
+site_url: https://example.com/
+repo_url: https://github.com/craigpastro/leetcode
+site_author: Craig Pastro
+nav:
+    - Home: index.md
+    - About: about.md
+    - Problems:
+      - '1. Two Sum': 'problems/1_two_sum.md'
+      - '2. Add Two Numbers': 'problems/2_add_two_numbers.md'
+      - '3. Longest Substring Without Repeating Characters': problems/3_longest_substring_without_repeating_characters.md
+      - '4. Median of Two Sorted Arrays': problems/4_median_of_two_sorted_arrays.md
+      - '5. Longest Palindromic Substring': problems/5_longest_palindromic_substring.md
+      - '6. ZigZag Conversion': problems/6_zigzag_conversion.md
+
+theme:
+    name: readthedocs
+    locale: en
+    nav_style: dark

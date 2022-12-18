@@ -1,11 +1,10 @@
-"""
-5. Longest Palindromic Substring
+# 5. Longest Palindromic Substring
+
 Medium
 
 Given a string s, return the longest palindromic substring in s.
-"""
 
-
+```python
 class Solution:
     def longestPalindrome(self, s: str) -> str:
         res = ""
@@ -27,3 +26,4 @@ def expand(s, start, end):
         end += 1
 
     return s[start + 1 : end]
+```

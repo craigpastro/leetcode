@@ -1,16 +1,14 @@
-"""
-16. 3Sum Closest
+# 16. 3Sum Closest
+
 Medium
 
-Given an integer array nums of length n and an integer target, find three
-integers in nums such that the sum is closest to target.
+Given an integer array nums of length n and an integer target, find three integers in nums such that the sum is closest to target.
 
 Return the sum of the three integers.
 
 You may assume that each input would have exactly one solution.
-"""
 
-
+```python
 class Solution:
     def threeSumClosest(self, nums: List[int], target: int) -> int:
         nums.sort()
@@ -34,3 +32,4 @@ class Solution:
                     k -= 1
 
         return best_candidate
+```
