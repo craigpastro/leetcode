@@ -1,4 +1,3 @@
-"""
 # 521. Longest Uncommon Subsequence I
 
 Easy
@@ -10,12 +9,12 @@ An uncommon subsequence between two strings is a string that is a subsequence of
 A subsequence of a string s is a string that can be obtained after deleting any number of characters from s.
 
 - For example, "abc" is a subsequence of "aebdc" because you can delete the underlined characters in "aebdc" to get "abc". Other subsequences of "aebdc" include "aebdc", "aeb", and "" (empty string).
-"""
 
-
+```python
 class Solution:
     def findLUSlength(self, a: str, b: str) -> int:
         if a == b:
             return -1
 
         return max(len(a), len(b))
+```

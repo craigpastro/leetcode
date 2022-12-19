@@ -1,4 +1,3 @@
-"""
 # 509. Fibonacci Number
 
 Easy
@@ -9,9 +8,8 @@ The Fibonacci numbers, commonly denoted `F(n)` form a sequence, called the Fibon
 - `F(n) = F(n - 1) + F(n - 2)`, for `n > 1.`
 
 Given `n`, calculate `F(n)`.
-"""
 
-
+```python
 class Solution:
     def fib(self, n: int) -> int:
         a = 0
@@ -26,3 +24,4 @@ class Solution:
             a, b = b, a + b
 
         return b
+```
