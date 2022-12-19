@@ -1,4 +1,3 @@
-"""
 # 242. Valid Anagram
 
 Easy
@@ -6,15 +5,14 @@ Easy
 Given two strings `s` and `t`, return `true` if `t` is an anagram of `s`, and `false` otherwise.
 
 An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.
-"""
 
-
+```python
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
-        return freq(s) == freq(t)
+        return self.freq(s) == self.freq(t)
 
-
-def freq(s):
-    d = {}
-    for c in s:
-        d[c] = d.get(c, 0) + 1
+    def freq(self, s):
+        d = {}
+        for c in s:
+            d[c] = d.get(c, 0) + 1
+```

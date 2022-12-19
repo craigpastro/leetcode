@@ -1,12 +1,10 @@
-"""
 # 226. Invert Binary Tree
 
 Easy
 
 Given the root of a binary tree, invert the tree, and return its root.
-"""
 
-
+```python
 class Solution:
     def invertTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
         if root is None:
@@ -22,3 +20,4 @@ class TreeNode:
         self.val = val
         self.left = left
         self.right = right
+```

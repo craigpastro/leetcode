@@ -1,4 +1,3 @@
-"""
 # 263. Ugly Number
 
 Easy
@@ -6,9 +5,8 @@ Easy
 An ugly number is a positive integer whose prime factors are limited to 2, 3, and 5.
 
 Given an integer n, return true if n is an ugly number.
-"""
 
-
+```python
 class Solution:
     def isUgly(self, n: int) -> bool:
         if n <= 0:
@@ -24,3 +22,4 @@ class Solution:
             n /= 5
 
         return n == 1
+```

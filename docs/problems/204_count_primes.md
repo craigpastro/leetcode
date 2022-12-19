@@ -1,11 +1,10 @@
-"""
 # 204. Count Primes
 
 Medium
 
 Given an integer `n`, return the number of prime numbers that are strictly less than `n`.
-"""
 
+```python
 # Sieve of Eratosthenes
 class Solution:
     def countPrimes(self, n: int) -> int:
@@ -23,3 +22,4 @@ class Solution:
                     sieve[j] = 0
 
         return res
+```
