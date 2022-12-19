@@ -1,4 +1,3 @@
-"""
 # 495. Teemo Attacking
 
 Easy
@@ -8,9 +7,8 @@ Our hero Teemo is attacking an enemy Ashe with poison attacks! When Teemo attack
 You are given a non-decreasing integer array timeSeries, where timeSeries[i] denotes that Teemo attacks Ashe at second timeSeries[i], and an integer duration.
 
 Return the total number of seconds that Ashe is poisoned.
-"""
 
-
+```python
 class Solution:
     def findPoisonedDuration(self, timeSeries: List[int], duration: int) -> int:
         res = duration
@@ -18,3 +16,4 @@ class Solution:
             res += min(timeSeries[i + 1] - timeSeries[i], duration)
 
         return res
+```

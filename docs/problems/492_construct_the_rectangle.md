@@ -1,4 +1,3 @@
-"""
 # 492. Construct the Rectangle
 
 Easy
@@ -10,8 +9,8 @@ A web developer needs to know how to design a web page's size. So, given a speci
 3. The difference between length L and width W should be as small as possible.
 
 Return an array [L, W] where L and W are the length and width of the web page you designed in sequence.
-"""
 
+```python
 import math
 
 
@@ -21,3 +20,4 @@ class Solution:
             l = area // w
             if l * w == area:
                 return [l, w]
+```

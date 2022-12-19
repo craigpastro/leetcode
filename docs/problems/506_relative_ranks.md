@@ -1,4 +1,3 @@
-"""
 # 506. Relative Ranks
 
 Easy
@@ -13,9 +12,8 @@ The athletes are placed based on their scores, where the 1st place athlete has t
 - For the 4th place to the nth place athlete, their rank is their placement number (i.e., the xth place athlete's rank is "x").
 
 Return an array answer of size n where answer[i] is the rank of the ith athlete.
-"""
 
-
+```python
 class Solution:
     def findRelativeRanks(self, score: List[int]) -> List[str]:
         d = {}
@@ -31,3 +29,4 @@ class Solution:
                 d[s] = str(i + 1)
 
         return [d[s] for s in score]
+```
