@@ -1,4 +1,3 @@
-"""
 # 594. Longest Harmonious Subsequence
 
 Easy
@@ -8,9 +7,8 @@ We define a harmonious array as an array where the difference between its maximu
 Given an integer array nums, return the length of its longest harmonious subsequence among all its possible subsequences.
 
 A subsequence of array is a sequence that can be derived from the array by deleting some or no elements without changing the order of the remaining elements.
-"""
 
-
+```python
 class Solution:
     def findLHS(self, nums: List[int]) -> int:
         d = {}
@@ -23,3 +21,4 @@ class Solution:
                 res = max(res, d[num] + d[num + 1])
 
         return res
+```

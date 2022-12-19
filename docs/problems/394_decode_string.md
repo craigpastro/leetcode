@@ -1,4 +1,3 @@
-"""
 # 394. Decode String
 
 Medium
@@ -10,9 +9,8 @@ The encoding rule is: `k[encoded_string]`, where the `encoded_string` inside the
 You may assume that the input string is always valid; there are no extra white spaces, square brackets are well-formed, etc. Furthermore, you may assume that the original data does not contain any digits and that digits are only for those repeat numbers, `k`. For example, there will not be input like `3a` or `2[4]`.
 
 The test cases are generated so that the length of the output will never exceed 105.
-"""
 
-
+```python
 class Solution:
     def decodeString(self, s: str) -> str:
         stack = []
@@ -35,3 +33,4 @@ class Solution:
                 curString += c
 
         return curString
+```

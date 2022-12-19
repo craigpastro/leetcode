@@ -1,4 +1,3 @@
-"""
 # 383. Ransom Note
 
 Easy
@@ -6,9 +5,8 @@ Easy
 Given two stings ransomNote and magazine, return true if ransomNote can be constructed from magazine and false otherwise.
 
 Each letter in magazine can only be used once in ransomNote.
-"""
 
-
+```python
 class Solution:
     def canConstruct(self, ransomNote: str, magazine: str) -> bool:
         d = {}
@@ -22,3 +20,4 @@ class Solution:
             d[c] -= 1
 
         return True
+```

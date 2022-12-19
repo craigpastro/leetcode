@@ -1,4 +1,3 @@
-"""
 # 374. Guess Number Higher or Lower
 
 Easy
@@ -16,9 +15,8 @@ You call a pre-defined API `int guess(int num)`, which returns three possible re
 - `0`: your guess is equal to the number I picked (i.e. `num == pick`).
 
 Return the number that I picked.
-"""
 
-
+```python
 # The guess API is already defined for you.
 # @param num, your guess
 # @return -1 if num is higher than the picked number
@@ -29,16 +27,16 @@ Return the number that I picked.
 
 class Solution:
     def guessNumber(self, n: int) -> int:
-        return helper(1, n)
+        return self.helper(1, n)
 
+    def helper(self, low, high):
+        mid = low + (high - low) // 2
+        n = guess(mid)
 
-def helper(low, high):
-    mid = low + (high - low) // 2
-    n = guess(mid)
-
-    if n < 0:
-        return helper(low, mid)
-    elif n == 0:
-        return mid
-    else:
-        return helper(mid + 1, high)
+        if n < 0:
+            return self.helper(low, mid)
+        elif n == 0:
+            return mid
+        else:
+            return self.helper(mid + 1, high)
+```
