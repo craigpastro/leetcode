@@ -1,19 +1,17 @@
-"""
-# 118. Pascal's Triangle
+# 119. Pascal's Triangle II
 
 Easy
 
-Given an integer numRows, return the first numRows of Pascal's triangle.
+Given an integer rowIndex, return the rowIndexth (0-indexed) row of the Pascal's triangle.
 
 In Pascal's triangle, each number is the sum of the two numbers directly above it.
-"""
 
-
+```python
 class Solution:
-    def generate(self, numRows: int) -> List[List[int]]:
+    def getRow(self, rowIndex: int) -> List[int]:
         pascal = []
 
-        for row in range(numRows):
+        for row in range(rowIndex + 1):
             r = []
             for col in range(row + 1):
                 if col == 0 or col == row:
@@ -22,4 +20,5 @@ class Solution:
                     r.append(pascal[row - 1][col - 1] + pascal[row - 1][col])
             pascal.append(r)
 
-        return pascal
+        return pascal[rowIndex]
+```

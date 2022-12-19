@@ -1,4 +1,3 @@
-"""
 # 171. Excel Sheet Column Number
 
 Easy
@@ -16,9 +15,8 @@ AA -> 27
 AB -> 28
 ...
 ```
-"""
 
-
+```python
 class Solution:
     def titleToNumber(self, columnTitle: str) -> int:
         a = ord("A")
@@ -28,3 +26,4 @@ class Solution:
             res = res * 26 + (ord(c) - a) + 1
 
         return res
+```

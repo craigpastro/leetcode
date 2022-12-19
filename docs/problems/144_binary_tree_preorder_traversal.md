@@ -1,12 +1,10 @@
-"""
 # 144. Binary Tree Preorder Traversal
 
 Easy
 
 Given the root of a binary tree, return the preorder traversal of its nodes' values
-"""
 
-
+```python
 class Solution:
     def preorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
         if root is None:
@@ -24,3 +22,4 @@ class TreeNode(object):
         self.val = val
         self.left = left
         self.right = right
+```
