@@ -1,4 +1,3 @@
-"""
 # 1051. Height Checker
 
 Easy
@@ -9,9 +8,8 @@ A school is trying to take an annual photo of all the students. The students are
 You are given an integer array heights representing the current order that the students are standing in. Each `heights[i]` is the height of the ith student in line (0-indexed).
 
 Return the number of indices where `heights[i] != expected[i]`.
-"""
 
-
+```python
 class Solution:
     def heightChecker(self, heights: List[int]) -> int:
         sheights = sorted(heights)
@@ -22,3 +20,4 @@ class Solution:
                 res += 1
 
         return res
+```

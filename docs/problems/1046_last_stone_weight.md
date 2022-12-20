@@ -1,4 +1,3 @@
-"""
 # 1046. Last Stone Weight
 
 Easy
@@ -13,8 +12,8 @@ We are playing a game with the stones. On each turn, we choose the heaviest two 
 At the end of the game, there is at most one stone left.
 
 Return the weight of the last remaining stone. If there are no stones left, return `0`.
-"""
 
+```python
 import heapq
 
 
@@ -33,3 +32,4 @@ class Solution:
             return 0
 
         return -heapq.heappop(stones)
+```

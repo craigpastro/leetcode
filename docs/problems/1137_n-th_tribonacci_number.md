@@ -1,4 +1,3 @@
-"""
 # 1137. N-th Tribonacci Number
 
 Easy
@@ -8,9 +7,8 @@ The Tribonacci sequence Tn is defined as follows:
 T0 = 0, T1 = 1, T2 = 1, and Tn+3 = Tn + Tn+1 + Tn+2 for n >= 0.
 
 Given `n`, return the value of `Tn`.
-"""
 
-
+```python
 class Solution:
     def tribonacci(self, n: int) -> int:
         if n == 0:
@@ -24,3 +22,4 @@ class Solution:
             t2, t1, t0 = t, t2, t1
 
         return t
+```
