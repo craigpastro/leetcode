@@ -1,11 +1,11 @@
-site_name: Leetcode Solutions
+site_name: Craig's Leetcode Solutions
 site_url: https://craigpastro.github.io/leetcode/
 repo_url: https://github.com/craigpastro/leetcode
 site_author: Craig Pastro
+
 theme:
-    name: readthedocs
+    name: material
     locale: en
-    nav_style: dark
 # nav:
 #     - Home: index.md
 #     - About: about.md
