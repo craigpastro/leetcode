@@ -6,7 +6,7 @@ My [Leetcode profile](https://leetcode.com/craigpastro/).
 - I like Go, so I did a bunch with Go.
 - Recently I tried to do a bunch with Python. I've come to the conclusion that Python is probably the best language for leetcoding. All the solutions here are in Python.
 
-You can see some of the older Ruby and Go solutions at the [repo](https://github.com/craigpastro/leetcode).
+You can see some of the older Ruby and Go solutions in the [repo](https://github.com/craigpastro/leetcode).
 
 ## Particularly interesting solutions or problems
 
