@@ -31,7 +31,7 @@ class Solution:
         if len(pairs) != 2:
             return False
 
-        if pairs[0] == tuple(reversed(pairs[1])):
+        if pairs[0] == pairs[1][::-1]:
             return True
 
         return False
