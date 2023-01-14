@@ -10,16 +10,15 @@ class Solution:
     def generateParenthesis(self, n: int) -> List[str]:
         return self.helper(n, n, [])
 
-
     def helper(self, m, n, ps):
         if m == 0 and n == 0:
             return ["".join(ps)]
 
         ps1, ps2 = [], []
         if m > 0:
-            ps1 = helper(m - 1, n, ps + ["("])
+            ps1 = self.helper(m - 1, n, ps + ["("])
         if n > m:
-            ps2 = helper(m, n - 1, ps + [")"])
+            ps2 = self.helper(m, n - 1, ps + [")"])
 
         return ps1 + ps2
 ```

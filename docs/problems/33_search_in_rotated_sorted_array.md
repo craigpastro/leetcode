@@ -13,53 +13,52 @@ You must write an algorithm with `O(log n)` runtime complexity.
 ```python
 class Solution:
     def search(self, nums: List[int], target: int) -> int:
-        pivot = find_pivot(nums, 0, len(nums) - 1)
+        pivot = self.find_pivot(nums, 0, len(nums) - 1)
+
         if pivot == -1:
-            return bsearch(nums, target)
+            return self.bsearch(nums, target)
 
         if target >= nums[0]:
             # Search the first (larger) half.
-            return bsearch(nums[:pivot], target)
-        else:
-            # Search the second (smaller) half and offset.
-            res = bsearch(nums[pivot:], target)
-            if res == -1:
-                return -1
-            else:
-                return pivot + res
+            return self.bsearch(nums[:pivot], target)
 
+        # Search the second (smaller) half and offset.
+        res = self.bsearch(nums[pivot:], target)
+        if res == -1:
+            return -1
 
-def find_pivot(nums, left, right):
-    if right < left:
-        return -1
+        return pivot + res
 
-    mid = left + (right - left) // 2
+    def find_pivot(self, nums, left, right):
+        if right < left:
+            return -1
 
-    if mid < right and nums[mid] > nums[mid + 1]:
-        return mid + 1
-    elif mid > left and nums[mid - 1] > nums[mid]:
-        return mid
-    elif nums[left] > nums[mid]:
-        # Left side is not sorted; search there
-        return find_pivot(nums, left, mid - 1)
-    else:
-        return find_pivot(nums, mid + 1, right)
-
-
-def bsearch(nums, target):
-    left = 0
-    right = len(nums) - 1
-
-    while left <= right:
         mid = left + (right - left) // 2
 
-        if nums[mid] == target:
+        if mid < right and nums[mid] > nums[mid + 1]:
+            return mid + 1
+        elif mid > left and nums[mid - 1] > nums[mid]:
             return mid
-
-        if target > nums[mid]:
-            left = mid + 1
+        elif nums[left] > nums[mid]:
+            # Left side is not sorted; search there
+            return self.find_pivot(nums, left, mid - 1)
         else:
-            right = mid - 1
+            return self.find_pivot(nums, mid + 1, right)
 
-    return -1
+    def bsearch(self, nums, target):
+        left = 0
+        right = len(nums) - 1
+
+        while left <= right:
+            mid = left + (right - left) // 2
+
+            if nums[mid] == target:
+                return mid
+
+            if target > nums[mid]:
+                left = mid + 1
+            else:
+                right = mid - 1
+
+        return -1
 ```
