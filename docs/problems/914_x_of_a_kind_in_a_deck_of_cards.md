@@ -2,7 +2,8 @@
 
 Easy
 
-You are given an integer array `deck` where `deck[i]` represents the number written on the ith card.
+You are given an integer array `deck` where `deck[i]` represents the number
+written on the ith card.
 
 Partition the cards into one or more groups such that:
 
