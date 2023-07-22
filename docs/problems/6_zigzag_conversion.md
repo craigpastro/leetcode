@@ -13,6 +13,8 @@ Y   I   R
 
 And then read line by line: "PAHNAPLSIIGYIR"
 
+## Solution
+
 ```python
 class Solution:
     def convert(self, s: str, numRows: int) -> str:

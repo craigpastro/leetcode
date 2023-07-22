@@ -4,6 +4,8 @@ Medium
 
 Given a string s, return the longest palindromic substring in s.
 
+## Solution
+
 ```python
 class Solution:
     def longestPalindrome(self, s: str) -> str:

@@ -9,6 +9,8 @@ return the median of the two sorted arrays.
 
 The overall run time complexity should be `O(log (m+n))`.
 
+## Solution
+
 ```python
 # Not a O(log (m+n)), but rather an O(m+n). The simplicity of the solution
 # versus the complexity of the recursive chopping the lists in half at each
