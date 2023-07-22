@@ -29,6 +29,8 @@ Note:
 - Do not ignore any characters other than the leading whitespace or the rest of
   the string after the digits.
 
+## Solution
+
 ```python
 class Solution:
     def myAtoi(self, s: str) -> int:

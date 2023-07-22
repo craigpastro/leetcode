@@ -7,6 +7,8 @@ strings.
 
 If there is no common prefix, return an empty string "".
 
+## Solution
+
 ```python
 class Solution:
     def longestCommonPrefix(self, strs: List[str]) -> str:

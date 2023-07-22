@@ -31,6 +31,8 @@ instances where subtraction is used:
 
 Given a roman numeral, convert it to an integer.
 
+## Solution
+
 ```python
 class Solution:
     def romanToInt(self, s: str) -> int:
