@@ -11,6 +11,8 @@ can be represented as a string `s` of length `n` where:
 Given a string `s`, reconstruct the permutation perm and return it. If there are
 multiple valid permutations perm, return any of them.
 
+## Solution
+
 ```python
 class Solution:
     def diStringMatch(self, s: str) -> List[int]:

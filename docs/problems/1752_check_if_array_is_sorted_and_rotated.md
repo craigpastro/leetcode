@@ -12,6 +12,8 @@ Note: An array `A` rotated by `x` positions results in an array `B` of the same
 length such that `A[i] == B[(i+x) % A.length]`, where `%` is the modulo
 operation.
 
+## Solution
+
 ```python
 class Solution:
     def check(self, nums: List[int]) -> bool:

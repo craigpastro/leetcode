@@ -12,6 +12,8 @@ Return a list of pairs in ascending order(with respect to pairs), each pair
 - `a < b`
 - `b - a` equals to the minimum absolute difference of any two elements in `arr`
 
+## Solution
+
 ```python
 class Solution:
     def minimumAbsDifference(self, arr: List[int]) -> List[List[int]]:

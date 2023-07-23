@@ -17,6 +17,8 @@ Implement the `RecentCounter` class:
 It is guaranteed that every call to ping uses a strictly larger value of t than
 the previous call.
 
+## Solution
+
 ```python
 class RecentCounter:
     def __init__(self):

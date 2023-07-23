@@ -14,6 +14,8 @@ the root to that leaf. Return the sum of these numbers.
 
 The test cases are generated so that the answer fits in a 32-bits integer.
 
+## Solution
+
 ```python
 class Solution:
     def sumRootToLeaf(self, root: Optional[TreeNode]) -> int:

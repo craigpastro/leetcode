@@ -8,6 +8,8 @@ make any number of steps.
 
 Return true if you can make arr equal to target or false otherwise.
 
+## Solution
+
 ```python
 class Solution:
     def canBeEqual(self, target: List[int], arr: List[int]) -> bool:

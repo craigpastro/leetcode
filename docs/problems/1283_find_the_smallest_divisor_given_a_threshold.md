@@ -12,6 +12,8 @@ equal to that element. (For example: 7/3 = 3 and 10/2 = 5).
 
 The test cases are generated so that there will be an answer.
 
+## Solution
+
 ```python
 class Solution:
     def smallestDivisor(self, nums: List[int], threshold: int) -> int:

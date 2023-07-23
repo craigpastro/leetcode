@@ -11,6 +11,8 @@ decreasing.
 Given an integer array nums, return true if the given array is monotonic, or
 false otherwise.
 
+## Solution
+
 ```python
 class Solution:
     def isMonotonic(self, nums: List[int]) -> bool:

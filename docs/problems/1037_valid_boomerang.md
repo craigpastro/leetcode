@@ -8,6 +8,8 @@ plane, return true if these points are a boomerang.
 A boomerang is a set of three points that are all distinct and not in a straight
 line.
 
+## Solution
+
 ```python
 class Solution:
     def isBoomerang(self, points: List[List[int]]) -> bool:

@@ -19,6 +19,8 @@ sorted while column 1 ('b', 'c', 'a') is not, so you would delete column 1.
 
 Return the number of columns that you will delete.
 
+## Solution
+
 ```python
 class Solution:
     def minDeletionSize(self, strs: List[str]) -> int:

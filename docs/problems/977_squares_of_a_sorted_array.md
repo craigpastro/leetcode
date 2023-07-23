@@ -5,6 +5,8 @@ Easy
 Given an integer array nums sorted in non-decreasing order, return an array of
 the squares of each number sorted in non-decreasing order.
 
+## Solution
+
 ```python
 class Solution:
     def sortedSquares(self, nums: List[int]) -> List[int]:

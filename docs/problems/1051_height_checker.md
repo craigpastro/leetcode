@@ -13,6 +13,8 @@ line (0-indexed).
 
 Return the number of indices where `heights[i] != expected[i]`.
 
+## Solution
+
 ```python
 class Solution:
     def heightChecker(self, heights: List[int]) -> int:

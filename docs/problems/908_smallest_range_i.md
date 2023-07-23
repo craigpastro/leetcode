@@ -14,6 +14,8 @@ nums.
 Return the minimum score of nums after applying the mentioned operation at most
 once for each index in it.
 
+## Solution
+
 ```python
 class Solution:
     def smallestRangeI(self, nums: List[int], k: int) -> int:

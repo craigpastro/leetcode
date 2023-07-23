@@ -18,6 +18,8 @@ P1 + P2 + ... + Pk, where Pi are primitive valid parentheses strings.
 Return s after removing the outermost parentheses of every primitive string in
 the primitive decomposition of s.
 
+## Solution
+
 ```python
 class Solution:
     def removeOuterParentheses(self, s: str) -> str:

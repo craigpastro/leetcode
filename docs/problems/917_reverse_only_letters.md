@@ -9,6 +9,8 @@ Given a string `s`, reverse the string according to the following rules:
 
 Return `s` after reversing it.
 
+## Solution
+
 ```python
 class Solution:
     def reverseOnlyLetters(self, s: str) -> str:

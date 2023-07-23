@@ -10,6 +10,8 @@ You are given an integer array nums with the following properties:
 
 Return the element that is repeated n times.
 
+## Solution
+
 ```python
 class Solution:
     def repeatedNTimes(self, nums: List[int]) -> int:
