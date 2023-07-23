@@ -2,7 +2,10 @@
 
 Easy
 
-Given a string s, return the string after replacing every uppercase letter with the same lowercase letter.
+Given a string s, return the string after replacing every uppercase letter with
+the same lowercase letter.
+
+## Solution
 
 ```python
 class Solution:

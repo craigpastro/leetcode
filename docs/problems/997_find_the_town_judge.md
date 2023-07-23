@@ -17,6 +17,8 @@ person labeled ai trusts the person labeled bi.
 Return the label of the town judge if the town judge exists and can be
 identified, or return -1 otherwise.
 
+## Solution
+
 ```python
 class Solution:
     def findJudge(self, n: int, trust: List[List[int]]) -> int:

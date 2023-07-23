@@ -2,9 +2,13 @@
 
 Easy
 
-Given an `m x n` matrix, return true if the matrix is Toeplitz. Otherwise, return false.
+Given an `m x n` matrix, return true if the matrix is Toeplitz. Otherwise,
+return false.
 
-A matrix is Toeplitz if every diagonal from top-left to bottom-right has the same elements.
+A matrix is Toeplitz if every diagonal from top-left to bottom-right has the
+same elements.
+
+## Solution
 
 ```python
 class Solution:

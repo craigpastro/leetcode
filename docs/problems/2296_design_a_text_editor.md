@@ -27,6 +27,8 @@ Implement the TextEditor class:
   last min(10, len) characters to the left of the cursor, where len is the
   number of characters to the left of the cursor.
 
+## Solution
+
 ```python
 class TextEditor:
     def __init__(self):

@@ -13,6 +13,8 @@ remove the ith balloon from the rope.
 
 Return the minimum time Bob needs to make the rope colorful.
 
+## Solution
+
 ```python
 class Solution:
     def minCost(self, colors: str, neededTime: List[int]) -> int:

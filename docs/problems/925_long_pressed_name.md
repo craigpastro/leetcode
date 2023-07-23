@@ -10,6 +10,8 @@ You examine the typed characters of the keyboard. Return True if it is possible
 that it was your friends name, with some characters (possibly none) being long
 pressed.
 
+## Solution
+
 ```python
 class Solution:
     def isLongPressedName(self, name: str, typed: str) -> bool:

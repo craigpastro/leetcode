@@ -12,6 +12,8 @@ Partition the cards into one or more groups such that:
 
 Return `true` if such partition is possible, or `false` otherwise.
 
+## Solution
+
 ```python
 import functools
 import math

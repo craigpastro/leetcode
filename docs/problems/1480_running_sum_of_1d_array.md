@@ -7,6 +7,8 @@ Given an array `nums`. We define a running sum of an array as
 
 Return the running sum of `nums`.
 
+## Solution
+
 ```python
 class Solution:
     def runningSum(self, nums: List[int]) -> List[int]:

@@ -16,6 +16,8 @@ the guards return.
 Return the minimum integer k such that she can eat all the bananas within h
 hours.
 
+## Solution
+
 ```python
 class Solution:
     def minEatingSpeed(self, piles: List[int], h: int) -> int:

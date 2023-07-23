@@ -16,6 +16,8 @@ the top, the front, and the side.
 
 Return the total area of all three projections.
 
+## Solution
+
 ```python
 class Solution:
     def projectionArea(self, grid: List[List[int]]) -> int:

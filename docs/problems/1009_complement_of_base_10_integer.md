@@ -10,6 +10,8 @@ The complement of an integer is the integer you get when you flip all the 0's to
 
 Given an integer n, return its complement.
 
+## Solution
+
 ```python
 class Solution:
     def bitwiseComplement(self, n: int) -> int:

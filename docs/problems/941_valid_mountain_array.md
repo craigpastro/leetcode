@@ -12,6 +12,8 @@ Recall that `arr` is a mountain array if and only if:
   - arr[0] < arr[1] < ... < arr[i - 1] < arr[i]
   - arr[i] > arr[i + 1] > ... > arr[arr.length - 1]
 
+## Solution
+
 ```python
 class Solution:
     def validMountainArray(self, arr: List[int]) -> bool:

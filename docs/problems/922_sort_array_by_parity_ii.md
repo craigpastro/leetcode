@@ -10,6 +10,8 @@ Sort the array so that whenever `nums[i]` is odd, `i` is odd, and whenever
 
 Return any answer array that satisfies this condition.
 
+## Solution
+
 ```python
 class Solution:
     def sortArrayByParityII(self, nums: List[int]) -> List[int]:

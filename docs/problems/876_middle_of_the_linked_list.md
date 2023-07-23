@@ -7,6 +7,8 @@ list.
 
 If there are two middle nodes, return the second middle node.
 
+## Solution
+
 ```python
 class Solution:
     def middleNode(self, head: Optional[ListNode]) -> Optional[ListNode]:
