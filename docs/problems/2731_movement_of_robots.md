@@ -66,6 +66,13 @@ The distance between the two robots is abs(-2 - 3) = 5.
 - s consists of 'L' and 'R' only
 - nums[i] will be unique.
 
+## Craig's notes
+
+- Based on how collisions work you can ignore them
+- The calculation of res is the sum of differences of all pairs. Basically count
+  the number of times each element is added and subtracted involved in the total
+  sum.
+
 ## Solution
 
 ```python
@@ -75,7 +82,6 @@ class Solution:
 
         pos = sorted([n + d if c == "R" else n - d for (n, c) in zip(nums, s)])
 
-        print(pos)
         res = 0
         n = len(pos)
 
