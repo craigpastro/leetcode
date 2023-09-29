@@ -15,6 +15,8 @@ You can see some of the older Ruby and Go solutions in the
 
 ## Particularly interesting solutions or problems
 
+The [Blind 75 Must Do Leetcode](https://leetcode.com/list/xi4ci4ig/) is a nice list. Others are:
+
 - [146. LRU Cache](./problems/146_lru_cache.md)
 - [295. Find Median from Data Stream](./problems/295_find_median_from_data_stream.md)
 - [594. Longest Harmonious Subsequence](./problems/594_longest_harmonious_subsequence.md)
