@@ -26,3 +26,4 @@ The [Blind 75 Must Do Leetcode](https://leetcode.com/list/xi4ci4ig/) is a nice l
 - [102. Binary Tree Level Order Traversal](./problems/102_binary_tree_level_order_traversal.md)
 - [200. Number of Islands](./problems/200_number_of_islands.md)
 - [394. Decode String](./problems/394_decode_string.md)
+- [208. Implement Trie](./problems/208_implement_trie.md)
