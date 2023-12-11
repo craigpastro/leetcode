@@ -1,0 +1,7287 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Craig Pastro">
+      
+      
+        <link rel="canonical" href="https://craigpastro.github.io/leetcode/problems/79_word_search/">
+      
+      
+        <link rel="prev" href="../78_subsets/">
+      
+      
+        <link rel="next" href="../83_remove_duplicates_from_sorted_list/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.1">
+    
+    
+      
+        <title>79. Word Search - Craig's Leetcode Solutions</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.45e1311d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#79-word-search" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Craig&#39;s Leetcode Solutions" class="md-header__button md-logo" aria-label="Craig's Leetcode Solutions" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Craig's Leetcode Solutions
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              79. Word Search
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/craigpastro/leetcode" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Craig&#39;s Leetcode Solutions" class="md-nav__button md-logo" aria-label="Craig's Leetcode Solutions" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Craig's Leetcode Solutions
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/craigpastro/leetcode" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Problems
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Problems
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1_two_sum/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Two Sum
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2_add_two_numbers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Add Two Numbers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3_longest_substring_without_repeating_characters/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Longest Substring Without Repeating Characters
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4_median_of_two_sorted_arrays/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Median of Two Sorted Arrays
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5_longest_palindromic_substring/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Longest Palindromic Substring
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6_zigzag_conversion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. ZigZag Conversion
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7_reverse_integer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. Reverse Integer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../8_string_to_integer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8. String to Integer (atoi)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../9_palindrome_number/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    9. Palindrome Number
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11_container_with_most_water/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    11. Container With Most Water
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12_integer_to_roman/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    12. Integer to Roman
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13_roman_to_integer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    13. Roman to Integer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14_longest_common_prefix/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    14. Longest Common Prefix
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15_3sum/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    15. 3Sum
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../16_3sum_closest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    16. 3Sum Closest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../17_letter_combinations_of_a_phone_number/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    17. Letter Combinations of a Phone Number
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../18_4sum/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    18. 4Sum
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../19_remove_nth_node/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    19. Remove Nth Node From End of List
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20_valid_parentheses/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    20. Valid Parentheses
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../21_merge_two_sorted_lists/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    21. Merge Two Sorted Lists
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../22_generate_parenthesis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    22. Generate Parentheses
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../23_merge_k_sorted_lists/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    23. Merge k Sorted Lists
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../24_swap_nodes_in_pairs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    24. Swap Nodes in Pairs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../26_remove_duplicates_from_sorted_array/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    26. Remove Duplicates from Sorted Array
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../27_remove_element/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    27. Remove Element
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../28_find_the_index_of_the_first_occurrence_in_a_string/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    28. Find the Index of the First Occurrence in a String
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../31_next_permutation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    31. Next Permutation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../33_search_in_rotated_sorted_array/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    33. Search in Rotated Sorted Array
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../34_find_first_and_last_position_of_element_in_sorted_array/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    34. Find First and Last Position of Element in Sorted Array
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../35_search_insert_position/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    35. Search Insert Position
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../36_valid_sudoku/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    36. Valid Sudoku
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../38_count_and_say/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    38. Count and Say
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../39_combination_sum/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    39. Combination Sum
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../40_combination_sum_ii/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    40. Combination Sum II
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../41_first_missing_positive/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    41. First Missing Positive
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../43_multiply_strings/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    43. Multiply Strings
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../46_permutations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    46. Permutations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../48_rotate_image/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    48. Rotate Image
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../49_group_anagrams/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    49. Group Anagrams
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../50_pow_x_n/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    50. Pow(x, n)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../53_maximum_subarray/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    53. Maximum Subarray
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../54_spiral_matrix/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    54. Spiral Matrix
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../55_jump_game/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    55. Jump Game
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../56_merge_intervals/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    56. Merge Intervals
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../57_insert_interval/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    57. Insert Interval
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../58_length_of_last_word/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    58. Length of Last Word
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../59_spiral_matrix_ii/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    59. Spiral Matrix II
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../61_rotate_list/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    61. Rotate List
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../62_unique_paths/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    62. Unique Paths
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../63_unique_paths_ii/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    63. Unique Paths II
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../64_minimum_path_sum/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    64. Minimum Path Sum
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../66_plus_one/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    66. Plus One
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../67_add_binary/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    67. Add Binary
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../69_sqrt_x/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    69. Sqrt(x)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../70_climbing_stairs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    70. Climbing Stairs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../73_set_matrix_zeros/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    73. Set Matrix Zeroes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../74_search_a_2d_matrix/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    74. Search a 2D Matrix
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../75_sort_colors/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    75. Sort Colors
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../78_subsets/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    78. Subsets
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    79. Word Search
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    79. Word Search
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#example-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 1:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 2:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 3:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#constraints" class="md-nav__link">
+    <span class="md-ellipsis">
+      Constraints:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#solution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Solution
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../83_remove_duplicates_from_sorted_list/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    83. Remove Duplicates from Sorted List
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../86_partition_list/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    86. Partition List
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../88_merge_sorted_array/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    88. Merge Sorted Array
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../92_reverse_linked_list_ii/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    92. Reverse Linked List II
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../94_binary_tree_inorder_traversal/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    94. Binary Tree Inorder Traversal
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../98_validate_binary_search_tree/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    98. Validate Binary Search Tree
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../100_same_tree/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    100. Same Tree
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../101_symmetric_tree/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    101. Symmetric Tree
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../102_binary_tree_level_order_traversal/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    102. Binary Tree Level Order Traversal
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../103_binary_tree_zigzag_level_order_traversal/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    103. Binary Tree Zigzag Level Order Traversal
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../104_maximum_depth_of_binary_tree/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    104. Maximum Depth of Binary Tree
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../105_construct_binary_tree_from_preorder_and_inorder/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    105. Construct Binary Tree from Preorder and Inorder Traversal
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../107_binary_tree_level_order_traversal_ii/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    107. Binary Tree Level Order Traversal II
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../108_convert_sorted_array_to_bst/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    108. Convert Sorted Array to Binary Search Tree
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../110_balanced_binary_tree/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    110. Balanced Binary Tree
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../111_minimum_depth_of_binary_tree/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    111. Minimum Depth of Binary Tree
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../112_path_sum/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    112. Path Sum
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../118_pascals_triangle/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    118. Pascal's Triangle
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../119_pascals_triangle_ii/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    119. Pascal's Triangle II
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../121_best_time_to_buy_and_sell_stock/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    121. Best Time to Buy and Sell Stock
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../122_best_time_to_buy_and_sell_stock_ii/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    122. Best Time to Buy and Sell Stock II
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../125_valid_palindrome/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    125. Valid Palindrome
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../128_longest_consecutive_sequence/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    128. Longest Consecutive Sequence
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../136_single_number/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    136. Single Number
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../139_word_break/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    139 word break
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../141_linked_list_cycle/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    141. Linked List Cycle
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../142_linked_list_cycle_ii/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    142. Linked List Cycle II
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../143_reorder_list/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    143. Reorder List
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../144_binary_tree_preorder_traversal/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    144. Binary Tree Preorder Traversal
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../145_binary_tree_postorder_traversal/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    145. Binary Tree Postorder Traversal
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../146_lru_cache/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    146. LRU Cache
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../152_maximum_product_subarray/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    152. Maximum Product Subarray
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../153_find_minimum_in_rotated_sorted_array/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    153. Find Minimum in Rotated Sorted Array
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../155_min_stack/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    155. Min Stack
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../160_intersection_of_two_linked_lists/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    160. Intersection of Two Linked Lists
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../165_compare_version_numbers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    165. Compare Version Numbers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../167_two_sum_ii/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    167. Two Sum II - Input array is sorted
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../168_excel_style_column_title/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    168. Excel Sheet Column Title
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../169_majority_element/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    169. Majority Element
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../171_excel_sheet_column_number/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    171. Excel Sheet Column Number
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../172_factorial_trailing_zeros/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    172. Factorial Trailing Zeroes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../173_binary_search_tree_iterator/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    173. Binary Search Tree Iterator
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../190_reverse_bits/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    190. Reverse Bits
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../191_number_of_1_bits/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    191. Number of 1 Bits
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../198_house_robber/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    198. House Robber
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../200_number_of_islands/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    200. Number of Islands
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../202_happy_number/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    202. Happy Number
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../203_remove_linked_list_elements/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    203. Remove Linked List Elements
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../204_count_primes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    204. Count Primes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../205_isomorphic_strings/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    205. Isomorphic Strings
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../206_reverse_linked_list/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    206. Reverse Linked List
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../208_implement_trie/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    208. Implement Trie (Prefix Tree)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../211_design_add_and_search_word_data_structure/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    211. Design Add and Search Words Data Structure
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../213_house_robber_ii/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    213. House Robber II
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../217_contains_duplicate/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    217. Contains Duplicate
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../219_contains_duplicate_ii/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    219. Contains Duplicate II
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../225_implement_stack_using_queues/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    225. Implement Stack using Queues
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../226_invert_binary_tree/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    226. Invert Binary Tree
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../228_summary_ranges/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    228. Summary Ranges
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../230_kth_smallest_element_in_a_bst/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    230. Kth Smallest Element in a BST
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../231_power_of_two/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    231. Power of Two
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../232_implement_queue_using_stacks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    232 implement queue using stacks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../234_palindrome_linked_list/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    234. Palindrome Linked List
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../235_lowest_common_ancestor_of_a_bst/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    235. Lowest Common Ancestor of a Binary Search Tree
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../237_delete_node_in_a_linked_list/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    237. Delete Node in a Linked List
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../238_product_of_array_except_self/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    238. Product of Array Except Self
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../242_valid_anagram/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    242. Valid Anagram
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../257_binary_tree_paths/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    257. Binary Tree Paths
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../263_ugly_number/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    263. Ugly Number
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../268_missing_number/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    268. Missing Number
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../278_first_bad_version/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    278. First Bad Version
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../283_move_zeros/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    283. Move Zeroes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../290_word_pattern/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    290. Word Pattern
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../292_nim_game/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    292. Nim Game
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../295_find_median_from_data_stream/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    295. Find Median from Data Stream
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../299_bulls_and_cows/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    299. Bulls and Cows
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../300_longest_increasing_subsequence/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    300. Longest Increasing Subsequence
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../303_range_sum_query/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    303. Range Sum Query - Immutable
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../326_power_of_three/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    326. Power of Three
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../338_counting_bits/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    338. Counting Bits
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../342_power_of_four/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    342. Power of Four
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../344_reverse_string/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    344. Reverse String
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../345_reverse_vowels_of_a_string/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    345. Reverse Vowels of a String
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../347_top_k_frequent_elements/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    347. Top K Frequent Elements
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../349_intersection_of_two_arrays/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    349. Intersection of Two Arrays
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../350_intersection_of_two_arrays_2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    350. Intersection of Two Arrays II
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../367_valid_perfect_square/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    367. Valid Perfect Square
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../374_guess_number_higher_or_lower/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    374. Guess Number Higher or Lower
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../383_ransom_note/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    383. Ransom Note
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../387_first_unique_character_in_a_string/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    387. First Unique Character in a String
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../389_find_the_difference/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    389. Find the Difference
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../392_is_subsequence/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    392. Is Subsequence
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../394_decode_string/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    394. Decode String
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../404_sum_of_left_leaves/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    404. Sum of Left Leaves
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../405_convert_a_number_to_hexidecimal/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    405. Convert a Number to Hexadecimal
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../409_longest_palindrome/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    409. Longest Palindrome
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../412_fizz_buzz/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    412. Fizz Buzz
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../414_third_maximum_number/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    414. Third Maximum Number
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../415_add_strings/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    415. Add Strings
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../424_longest_repeating_character_replacement/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    424. Longest Repeating Character Replacement
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../434_number_of_segments_in_a_string/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    434. Number of Segments in a String
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../438_find_all_anagrams_in_a_string/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    438. Find All Anagrams in a String
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../441_arranging_coins/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    441. Arranging Coins
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../443_string_compression/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    443. String Compression
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../448_find_all_numbers_disappeared_in_an_array/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    448. Find All Numbers Disappeared in an Array
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../455_assign_cookies/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    455. Assign Cookies
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../459_repeated_substring_pattern/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    459. Repeated Substring Pattern
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../461_hamming_distance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    461. Hamming Distance
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../463_island_parameter/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    463. Island Perimeter
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../476_number_complement/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    476. Number Complement
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../482_license_key_formatting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    482. License Key Formatting
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../485_max_consecutive_ones/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    485. Max Consecutive Ones
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../492_construct_the_rectangle/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    492. Construct the Rectangle
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../495_teemo_attacking/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    495. Teemo Attacking
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../496_next_greater_element_i/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    496. Next Greater Element I
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../498_diagonal_traverse/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    498. Diagonal Traverse
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../500_keyboard_row/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    500. Keyboard Row
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../501_find_mode_in_binary_search_tree/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    501. Find Mode in Binary Search Tree
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../504_base_7/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    504. Base 7
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../506_relative_ranks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    506. Relative Ranks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../507_perfect_number/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    507. Perfect Number
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../509_fibonacci_number/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    509. Fibonacci Number
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../520_detect_capital/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    520. Detect Capital
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../521_longest_uncommon_subsequence_i/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    521. Longest Uncommon Subsequence I
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../530_minimum_absolute_difference_in_bst/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    530. Minimum Absolute Difference in BST
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../541_reverse_string_ii/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    541. Reverse String II
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../543_diameter_of_binary_tree/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    543. Diameter of Binary Tree
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../551_student_attendence_i/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    551. Student Attendance Record I
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../557_reverse_words/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    557. Reverse Words in a String III
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../559_maximum_depth_of_n_ary_tree/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    559. Maximum Depth of N-ary Tree
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../561_array_partition/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    561. Array Partition
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../563_binary_tree_tilt/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    563. Binary Tree Tilt
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../566_reshape_the_matrix/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    566. Reshape the Matrix
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../572_subtree_of_another_tree/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    572. Subtree of Another Tree
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../575_distribute_candies/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    575. Distribute Candies
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../589_n-ary_tree_preorder_traversal/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    589. N-ary Tree Preorder Traversal
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../590_n-ary_tree_postorder_traversal/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    590. N-ary Tree Postorder Traversal
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../594_longest_harmonious_subsequence/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    594. Longest Harmonious Subsequence
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../599_minimum_index_sum_of_two_lists/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    599. Minimum Index Sum of Two Lists
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../605_can_place_flowers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    605. Can Place Flowers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../606_construct_string_from_binary_tree/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    606. Construct String from Binary Tree
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../617_merge_two_binary_trees/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    617. Merge Two Binary Trees
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../628_maximum_product_of_three_numbers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    628. Maximum Product of Three Numbers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../637_average_of_levels_in_binary_tree/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    637. Average of Levels in Binary Tree
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../643_maximum_average_subarray_i/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    643. Maximum Average Subarray I
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../645_set_mismatch/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    645. Set Mismatch
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../647_palindromic_substrings/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    647. Palindromic Substrings
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../653_two_sum_iv_input_is_a_bst/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    653. Two Sum IV - Input is a BST
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../671_second_minimum_node_in_a_binary_tree/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    671. Second Minimum Node In a Binary Tree
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../674_longest_continuous_increasing_subsequence/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    674. Longest Continuous Increasing Subsequence
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../680_valid_palindrome_ii/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    680. Valid Palindrome II
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../682_baseball_game/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    682. Baseball Game
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../692_top_k_frequent_words/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    692. Top K Frequent Words
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../693_binary_number_with_alternating_bits/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    693. Binary Number with Alternating Bits
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../697_degree_of_an_array/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    697. Degree of an Array
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../700_search_in_a_binary_search_tree/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    700. Search in a Binary Search Tree
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../703_kth_largest_element_in_a_stream/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    703. Kth Largest Element in a Stream
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../704_binary_search/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    704. Binary Search
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../705_design_hashset/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    705. Design HashSet
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../706_design_hashmap/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    706. Design HashMap
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../709_to_lower_case/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    709. To Lower Case
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../717_1-bit_and_2-bit_characters/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    717. 1-bit and 2-bit Characters
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../724_find_pivot_index/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    724. Find Pivot Index
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../728_self_dividing_numbers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    728. Self Dividing Numbers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../733_flood_fill/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    733. Flood Fill
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../735_asteroid_collision/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    735. Asteroid Collision
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../744_find_smallest_letter_greater_than_target/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    744. Find Smallest Letter Greater Than Target
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../746_min_cost_climbing_stairs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    746. Min Cost Climbing Stairs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../747_largest_number_at_least_twice_of_others/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    747. Largest Number At Least Twice of Others
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../748_shortest_completed_word/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    748. Shortest Completing Word
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../762_prime_number_of_set_bits_in_binary_representation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    762. Prime Number of Set Bits in Binary Representation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../766_toeplitz_matrix/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    766. Toeplitz Matrix
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../771_jewels_and_stones/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    771. Jewels and Stones
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../783_minimum_distance_between_bst_nodes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    783. Minimum Distance Between BST Nodes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../796_rotate_string/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    796. Rotate String
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../804_unique_morse_code_words/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    804. Unique Morse Code Words
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../806_number_of_lines_to_write_string/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    806. Number of Lines To Write String
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../812_largest_triangle_area/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    812. Largest Triangle Area
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../819_most_common_word/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    819. Most Common Word
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../821_shortest_distance_to_a_character/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    821. Shortest Distance to a Character
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../824_goat_latin/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    824. Goat Latin
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../830_positions_of_large_groups/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    830. Positions of Large Groups
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../832_flipping_an_image/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    832. Flipping an Image
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../836_rectangle_overlap/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    836. Rectangle Overlap
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../844_backspace_string_compare/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    844. Backspace String Compare
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../859_buddy_strings/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    859. Buddy Strings
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../860_lemonade_change/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    860. Lemonade Change
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../867_transpose_matrix/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    867. Transpose Matrix
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../868_binary_gap/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    868. Binary Gap
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../872_leaf-similar_trees/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    872. Leaf-Similar Trees
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../874_walking_robot_simulation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    874. Walking Robot Simulation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../875_koko_eating_bananas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    875. Koko Eating Bananas
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../876_middle_of_the_linked_list/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    876. Middle of the Linked List
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../883_projection_area_of_3D_shapes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    883. Projection Area of 3D Shapes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../884_uncommon_words_from_two_sentences/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    884. Uncommon Words from Two Sentences
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../888_fair_candy_swap/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    888. Fair Candy Swap
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../892_surface_area_of_3D_shapes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    892. Surface Area of 3D Shapes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../896_monotonic_array/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    896. Monotonic Array
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../897_increasing_order_search_tree/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    897. Increasing Order Search Tree
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../905_sort_array_by_parity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    905. Sort Array By Parity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../908_smallest_range_i/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    908. Smallest Range I
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../914_x_of_a_kind_in_a_deck_of_cards/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    914. X of a Kind in a Deck of Cards
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../917_reverse_only_letters/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    917. Reverse Only Letters
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../922_sort_array_by_parity_ii/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    922. Sort Array By Parity II
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../925_long_pressed_name/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    925. Long Pressed Name
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../929_unique_email_addresses/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    929. Unique Email Addresses
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../933_number_of_recent_calls/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    933. Number of Recent Calls
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../938_range_sum_of_bst/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    938. Range Sum of BST
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../941_valid_mountain_array/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    941. Valid Mountain Array
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../942_di_string_match/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    942. DI String Match
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../944_delete_columns_to_make_sorted/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    944. Delete Columns to Make Sorted
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../961_n-repeated_element_in_size_2n_array/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    961. N-Repeated Element in Size 2N Array
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../965_univalued_binary_tree/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    965. Univalued Binary Tree
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../976_largest_perimeter_triangle/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    976. Largest Perimeter Triangle
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../977_squares_of_a_sorted_array/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    977. Squares of a Sorted Array
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../993_cousins_in_binary_tree/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    993. Cousins in Binary Tree
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../997_find_the_town_judge/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    997. Find the Town Judge
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1002_find_common_characters/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1002. Find Common Characters
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1005_maximize_sum_of_array_after_k_negations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1005. Maximize Sum Of Array After K Negations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1009_complement_of_base_10_integer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1009. Complement of Base 10 Integer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1013_partition_array_into_three_parts_with_equal_sum/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1013. Partition Array Into Three Parts With Equal Sum
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1018_binary_prefix_divisible_by_5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1018. Binary Prefix Divisible By 5
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1021_remove_outermost_parentheses/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1021. Remove Outermost Parentheses
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1022_sum_of_root_to_leaf_binary_numbers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1022. Sum of Root To Leaf Binary Numbers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1025_divisor_game/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1025. Divisor Game
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1037_valid_boomerang/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1037. Valid Boomerang
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1041_robot_bounded_in_circle/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1041. Robot Bounded In Circle
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1046_last_stone_weight/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1046. Last Stone Weight
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1047_remove_all_adjacent_duplicates_in_string/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1047. Remove All Adjacent Duplicates In String
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1051_height_checker/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1051. Height Checker
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1108_defanging_an_ip_address/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1108. Defanging an IP Address
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1122_relative_sort_array/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1122. Relative Sort Array
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1137_n-th_tribonacci_number/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1137. N-th Tribonacci Number
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1190_reverse_substrings_between_each_pair_of_parentheses/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1190. Reverse Substrings Between Each Pair of Parentheses
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1200_minimum_absolute_difference/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1200. Minimum Absolute Difference
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1217_minimum_cost_to_move_chips_to_the_same_position/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1217. Minimum Cost to Move Chips to The Same Position
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1275_find_winner_on_a_tic_tac_toe_game/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1275 find winner on a tic tac toe game
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1283_find_the_smallest_divisor_given_a_threshold/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1283. Find the Smallest Divisor Given a Threshold
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1309_decrypt_string_from_alphabet_to_integer_mapping/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1309. Decrypt String from Alphabet to Integer Mapping
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1331_rank_transform_of_an_array/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1331. Rank Transform of an Array
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1332_remove_palindromic_subsequences/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1332. Remove Palindromic Subsequences
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1460_make_two_arrays_equal_by_reversing_subarrays/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1460. Make Two Arrays Equal by Reversing Subarrays
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1480_running_sum_of_1d_array/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1480. Running Sum of 1d Array
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1578_minimum_time_to_make_rope_colorful/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1578. Minimum Time to Make Rope Colorful
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1752_check_if_array_is_sorted_and_rotated/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1752. Check if Array Is Sorted and Rotated
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1846_maximum_element_after_decreasing_and_rearranging/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1846. Maximum Element After Decreasing and Rearranging
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1869_longer_contiguous_segments_of_ones_than_zeros/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1869. Longer Contiguous Segments of Ones than Zeros
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1876_substring_of_size_three_with_distinct_characters/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1876. Substrings of Size Three with Distinct Characters
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1909_remove_one_element_to_make_the_array_strictly_increasing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1909. Remove One Element to Make the Array Strictly Increasing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2296_design_a_text_editor/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2296. Design a Text Editor
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2710_remove_trailing_zeros_from_a_string/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2710. Remove Trailing Zeros From a String
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2716_minimize_string_length/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2716. Minimize String Length
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2717_semi-ordered_permutation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2717. Semi-Ordered Permutation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2729_check_if_the_number_is_fascinating/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2729. Check if The Number is Fascinating
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2731_movement_of_robots/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2731. Movement of Robots
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2733_neither_minimum_nor_maximum/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2733. Neither Minimum nor Maximum
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2739_total_distance_travelled/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2739. Total Distance Traveled
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2744_find_maximum_number_of_string_pairs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2744. Find Maximum Number of String Pairs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2748_number_of_beautiful_pairs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2748. Number of Beautiful Pairs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#example-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 1:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 2:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 3:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#constraints" class="md-nav__link">
+    <span class="md-ellipsis">
+      Constraints:
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#solution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Solution
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="79-word-search">79. Word Search</h1>
+<p>Medium</p>
+<p>Given an m x n grid of characters board and a string word, return true if word exists in the grid.</p>
+<p>The word can be constructed from letters of sequentially adjacent cells, where adjacent cells are horizontally or vertically neighboring. The same letter cell may not be used more than once.</p>
+<h4 id="example-1">Example 1:</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Input: board = [[&quot;A&quot;,&quot;B&quot;,&quot;C&quot;,&quot;E&quot;],[&quot;S&quot;,&quot;F&quot;,&quot;C&quot;,&quot;S&quot;],[&quot;A&quot;,&quot;D&quot;,&quot;E&quot;,&quot;E&quot;]], word = &quot;ABCCED&quot;
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>Output: true
+</code></pre></div>
+<h4 id="example-2">Example 2:</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Input: board = [[&quot;A&quot;,&quot;B&quot;,&quot;C&quot;,&quot;E&quot;],[&quot;S&quot;,&quot;F&quot;,&quot;C&quot;,&quot;S&quot;],[&quot;A&quot;,&quot;D&quot;,&quot;E&quot;,&quot;E&quot;]], word = &quot;SEE&quot;
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>Output: true
+</code></pre></div>
+<h4 id="example-3">Example 3:</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Input: board = [[&quot;A&quot;,&quot;B&quot;,&quot;C&quot;,&quot;E&quot;],[&quot;S&quot;,&quot;F&quot;,&quot;C&quot;,&quot;S&quot;],[&quot;A&quot;,&quot;D&quot;,&quot;E&quot;,&quot;E&quot;]], word = &quot;ABCB&quot;
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>Output: false
+</code></pre></div>
+<h4 id="constraints">Constraints:</h4>
+<ul>
+<li>m == board.length</li>
+<li>n = board[i].length</li>
+<li>1 &lt;= m, n &lt;= 6</li>
+<li>1 &lt;= word.length &lt;= 15</li>
+<li>board and word consists of only lowercase and uppercase English letters.</li>
+</ul>
+<p>Follow up: Could you use search pruning to make your solution faster with a larger board?</p>
+<h2 id="solution">Solution</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    <span class="k">def</span> <span class="nf">exist</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">board</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]],</span> <span class="n">word</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>        <span class="n">m</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">board</span><span class="p">)</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>        <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">board</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>        <span class="k">def</span> <span class="nf">search</span><span class="p">(</span><span class="n">i</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">j</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">s</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>            <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">i</span> <span class="o">==</span> <span class="n">m</span> <span class="ow">or</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">j</span> <span class="o">==</span> <span class="n">n</span><span class="p">:</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>                <span class="k">return</span> <span class="kc">False</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>            <span class="k">if</span> <span class="n">board</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">!=</span> <span class="n">word</span><span class="p">[</span><span class="n">s</span><span class="p">]</span> <span class="ow">or</span> <span class="n">board</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;*&quot;</span><span class="p">:</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>                <span class="k">return</span> <span class="kc">False</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>            <span class="k">if</span> <span class="n">s</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>                <span class="k">return</span> <span class="kc">True</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>            <span class="n">bij</span> <span class="o">=</span> <span class="n">board</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>            <span class="n">board</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;*&quot;</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>            <span class="n">exists</span> <span class="o">=</span> <span class="p">(</span>
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>                <span class="n">search</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">s</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>                <span class="ow">or</span> <span class="n">search</span><span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">s</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>                <span class="ow">or</span> <span class="n">search</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">s</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>                <span class="ow">or</span> <span class="n">search</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">s</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>            <span class="p">)</span>
+<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>
+<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a>            <span class="n">board</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">bij</span>
+<a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a>
+<a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a>            <span class="k">return</span> <span class="n">exists</span>
+<a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a>
+<a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a>        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+<a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a>            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a>                <span class="k">if</span> <span class="n">search</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="mi">0</span><span class="p">):</span>
+<a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a>                    <span class="k">return</span> <span class="kc">True</span>
+<a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a>
+<a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a>        <span class="k">return</span> <span class="kc">False</span>
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7c377c4.min.js"></script>
+      
+    
+  </body>
+</html>
